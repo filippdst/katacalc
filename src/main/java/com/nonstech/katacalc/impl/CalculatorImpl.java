@@ -27,7 +27,7 @@ public class CalculatorImpl implements Calculator {
         }
         String delimiters = getDelimitersFromInput(input);
         input = input.replaceFirst(FIND_DELIMITER_IN_INPUT_PATTERN, "");
-        String[] numbers = input.split(delimiters+"|\n");
+        String[] numbers = input.split(delimiters + "|\n");
         int result = 0;
         List<String> negatives = new ArrayList<>();
         for (String number : numbers) {
@@ -64,11 +64,11 @@ public class CalculatorImpl implements Calculator {
 
     private List<String> getDelimitersFromPlaceholders(String textWithPotentialPlaceholders) {
         final Matcher matcher = PLACEHOLDER_PATTERN.matcher(textWithPotentialPlaceholders);
-        final List<String> list = new LinkedList<>();
+        final List<String> delimitersList = new LinkedList<>();
         while (matcher.find()) {
-            list.add(matcher.group(1));
+            delimitersList.add(matcher.group(1));
         }
-        return list;
+        return delimitersList;
     }
 
     private boolean isDelimiter(String element) {
